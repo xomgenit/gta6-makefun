@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOLMAR — Open-World Crime Game</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<canvas id="game" aria-label="Solmar: an open-world crime game. Drive, explore the city, take missions and escape the police."></canvas>
+
+<!-- Heads-up display -->
+<div id="hud" class="hidden">
+  <div id="hud-top-left">
+    <div id="health-wrap"><div id="health-bar"></div><span id="health-text">100</span></div>
+    <div id="objective-box">
+      <div id="objective-title">FREE ROAM</div>
+      <div id="objective-text">Explore Solmar Bay. Find the yellow marker to start a mission.</div>
+    </div>
+  </div>
+  <div id="hud-top-right">
+    <div id="money">$0</div>
+    <div id="stars" aria-label="wanted level"></div>
+    <div id="clock">DAY 1</div>
+  </div>
+  <div id="hud-bottom-left">
+    <canvas id="minimap" width="220" height="220"></canvas>
+    <div id="zone-label">DOWNTOWN</div>
+  </div>
+  <div id="hud-bottom-right">
+    <div id="speed-box" class="hidden"><span id="speed">0</span><span class="unit">km/h</span></div>
+    <div id="hint"></div>
+  </div>
+  <div id="banner" class="hidden"></div>
+  <div id="toast"></div>
+  <div id="damage-vignette"></div>
+</div>
+
+<!-- Start screen -->
+<div id="title-screen">
+  <div class="title-inner">
+    <div class="title-kicker">SUN &nbsp;•&nbsp; CRIME &nbsp;•&nbsp; SOLMAR BAY</div>
+    <h1>SOLMAR</h1>
+    <div class="title-sub">Streets of the Sun — an open-world crime story</div>
+    <p class="title-story">Danny "Dice" Marlow came to Solmar Bay with a stolen
+      car and a pocket full of nothing. Now fixer Vera Santos has work for him —
+      if he can stay ahead of the Solmar Bay Police.</p>
+    <div class="title-buttons">
+      <button id="btn-new" class="big-btn">NEW GAME</button>
+      <button id="btn-continue" class="big-btn hidden">CONTINUE</button>
+      <button id="btn-how" class="big-btn secondary">HOW TO PLAY</button>
+    </div>
+    <div id="how-to" class="hidden">
+      <p><b>On foot:</b> WASD / arrows to move &nbsp;•&nbsp; Shift to sprint &nbsp;•&nbsp;
+        Mouse to aim &nbsp;•&nbsp; Click to shoot &nbsp;•&nbsp; E to enter a car, pick things up, talk</p>
+      <p><b>Driving:</b> W accelerate &nbsp;•&nbsp; S brake / reverse &nbsp;•&nbsp; A/D steer &nbsp;•&nbsp;
+        Space handbrake &nbsp;•&nbsp; E to get out</p>
+      <p><b>Other:</b> P or Esc pause &nbsp;•&nbsp; M mute &nbsp;•&nbsp; Steal cars, take missions from the
+        yellow marker, lose the cops or pay the Sunset Auto Spa to clear your wanted level.</p>
+    </div>
+    <div class="title-foot">A fully original game. No network needed — runs entirely offline.</div>
+  </div>
+</div>
+
+<!-- Pause menu -->
+<div id="pause-screen" class="hidden">
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <div id="pause-stats"></div>
+    <div class="title-buttons">
+      <button id="btn-resume" class="big-btn">RESUME</button>
+      <button id="btn-save" class="big-btn secondary">SAVE GAME</button>
+      <button id="btn-restart" class="big-btn secondary">RESTART MISSION</button>
+      <button id="btn-quit" class="big-btn secondary">QUIT TO TITLE</button>
+    </div>
+    <div id="save-note"></div>
+  </div>
+</div>
+
+<!-- Wasted / busted overlay -->
+<div id="end-screen" class="hidden">
+  <div class="panel">
+    <h2 id="end-title">WASTED</h2>
+    <p id="end-text"></p>
+    <button id="btn-respawn" class="big-btn">CONTINUE</button>
+  </div>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
